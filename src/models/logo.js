@@ -3,13 +3,14 @@ import axios from 'axios'
 export default {
   namespace: 'logo',
   state: {
+      list:[]
   },
   subscriptions: {
   },
   effects: {
     *generateLogo ({ payload }, { put, call, select }) {
       try {
-        const data = yield call([axios, axios.get], 'https://foxtrot-padityareddi862914.codeanyapp.com/')
+        const data = yield call([axios, axios.get], 'https://sxzaw-adityareddy.c9users.io')
         if (data) {
           yield put({ type: 'addGeneratedLogo', payload: data })
         } else {
@@ -21,7 +22,7 @@ export default {
   },
   reducers: {
     addGeneratedLogo: (state, {payload: {data}}) => {
-      return { ...state, data }
+      return { ...state, list: state.list.concat(data) }
     }
   }
 }

@@ -9,7 +9,6 @@ export class Home extends Component {
   constructor (props) {
     super(props)
     this.generateLogo = () => {
-        console.log('dispath')
       this.props.dispatch({
         type: `logo/generateLogo`,
         payload: {
@@ -24,6 +23,13 @@ export class Home extends Component {
         <Tabs activeName="1">
           <Tabs.Pane label="User" name="1">
             <Layout.Row>
+            {this.props.logoList.map((logo, i)=>(
+            <Layout.Col span={ 6 } offset={ 0 }>
+              <LogoCard logoDetails={{isReady:true, slogan:'test', brandName:'test', brandNamePath:'1234x'}} key={i}>
+                {logo}
+              </LogoCard>
+            </Layout.Col>
+            ))}
             </Layout.Row>
             <Layout.Row type="flex" justify="space-around" style={{marginTop:"20px"}}>
                 <Layout.Col span="2">
@@ -44,7 +50,7 @@ export class Home extends Component {
 
 function mapStateToProps (state) {
   return {
-    auth: state.auth
+    logoList: state.logo.list
   }
 }
 
