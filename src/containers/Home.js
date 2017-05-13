@@ -25,7 +25,7 @@ export class Home extends Component {
             <Layout.Row>
             {this.props.logoList.map((logo, i)=>(
             <Layout.Col span={ 6 } offset={ 0 }>
-              <LogoCard logoDetails={{isReady:true, slogan:'test', brandName:'test', brandNamePath:'1234x'}} key={i}>
+              <LogoCard logoDetails={logo} key={i}>
                 {logo}
               </LogoCard>
             </Layout.Col>
