@@ -12,6 +12,8 @@ export class Home extends Component {
       this.props.dispatch({
         type: `logo/generateLogo`,
         payload: {
+          brandName: this.refs.brandName.refs.input.value,
+          slogan: this.refs.slogan.refs.input.value
         }
       })
     }
@@ -22,13 +24,11 @@ export class Home extends Component {
       <div className='App'>
         <Tabs activeName="1">
           <Tabs.Pane label="User" name="1">
-            <Layout.Row>
+            <Layout.Row gutter="20" style={{margin:'20px'}}>
             {this.props.logoList.map((logo, i)=>(
-            <Layout.Col span={ 6 } offset={ 0 }>
-              <LogoCard logoDetails={logo} key={i}>
-                {logo}
-              </LogoCard>
-            </Layout.Col>
+              <Layout.Col span={ 8 } key={i}>
+                <LogoCard logoDetails={logo}/>
+              </Layout.Col>
             ))}
             </Layout.Row>
             <Layout.Row type="flex" justify="space-around" style={{marginTop:"20px"}}>
@@ -55,5 +55,5 @@ function mapStateToProps (state) {
 }
 
 export default connect(
-  mapStateToProps,
+  mapStateToProps
 )(Home)

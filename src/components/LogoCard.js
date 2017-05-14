@@ -16,9 +16,14 @@ class LogoCard extends Component {
     return (
         <div>
         <Loading loading={false}>
-            <div style={{ margin: "20px", boxShadow: "0 10px 10px rgba(0,0,0,0.2), 0 100px 100px rgba(0, 0, 0, 0.03)" }}>
-
-            </div>
+            <svg viewBox="0 0 400 400">
+              <rect width="100%" height="100%" fill={logoDetails.background_color} />
+              <g transform="translate(150 150)">
+                <path transform="scale(2) translate(-35 -15)" fill="white" stroke="none" d={logoDetails.monogram}/>
+                <path fill="white" stroke="none" d={logoDetails.brand_path}/>
+                <path transform="scale(0.45) translate(0 115)" fill="white" stroke="none" d={logoDetails.slogan_path}/>
+              </g>
+            </svg>
           <Layout.Row type="flex" className="row-bg" justify="space-around">
             <Layout.Col span="6"><Button type="primary">Like!</Button></Layout.Col>
             <Layout.Col span="6"><Button>Dislike!</Button></Layout.Col>

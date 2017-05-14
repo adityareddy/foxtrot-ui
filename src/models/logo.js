@@ -10,7 +10,7 @@ export default {
   effects: {
     *generateLogo ({ payload }, { put, call, select }) {
       try {
-        const data = yield call([axios, axios.get], 'https://sxzaw-adityareddy.c9users.io:8081/generate?text=rest&size=72&state=1,2,3,4')
+        const data = yield call([axios, axios.get], `https://kersera-adityareddy.c9users.io:8081/generate?brand=${payload.brandName}&slogan=${payload.slogan}&state=1,2,3,4`)
         if (data) {
           yield put({ type: 'addGeneratedLogo', payload: data })
         } else {
